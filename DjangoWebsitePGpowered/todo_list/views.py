@@ -2,8 +2,12 @@ from http.client import HTTPResponse
 
 from django.http import HttpRequest
 from django.shortcuts import render
-from django.views.generic import TemplateView, ListView, DetailView
+from django.views.generic import (ListView,
+                                  DetailView,
+                                  CreateView,)
+from django.urls import reverse
 
+from .forms import ToDoItemForm
 from .models import ToDoItem
 
 
@@ -27,3 +31,10 @@ class ToDoListDoneView(ListView):
 
 class ToDoDetailView(DetailView):
     model = ToDoItem
+
+
+class ToDoItemCreateView(CreateView):
+    model = ToDoItem
+    form_class = ToDoItemForm
+    # fields = ("title", "description")
+
