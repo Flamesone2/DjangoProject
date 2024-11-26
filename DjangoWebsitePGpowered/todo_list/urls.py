@@ -1,10 +1,12 @@
 from django.urls import path
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, CreateView
+
+from .forms import ToDoItemForm
 from .views import (index_view,
                     ToDoListIndexView,
                     ToDoListView,
                     ToDoListDoneView,
-                    ToDoDetailView)
+                    ToDoDetailView, ToDoItemCreateView)
 app_name = "todo_list"
 
 urlpatterns = [
@@ -14,5 +16,5 @@ urlpatterns = [
     path("<int:pk>/", ToDoDetailView.as_view(), name="detail"),
     path("list/", ToDoListView.as_view(), name="list"),
     path("done/", ToDoListDoneView.as_view(), name="done"),
-
+    path("create/", ToDoItemCreateView.as_view(), name="create"),
 ]
