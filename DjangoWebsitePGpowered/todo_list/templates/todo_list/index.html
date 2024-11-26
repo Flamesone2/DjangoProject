@@ -7,6 +7,7 @@ ToDo list App
     <ul>
       <li><a href = "{% url 'todo_list:list' %}">All ToDo Items</a></li>
       <li><a href = "{% url 'todo_list:done' %}">Done ToDo Items</a></li>
+      <li><a href = "{% url 'todo_list:create' %}">Create ToDo Item</a></li>
     </ul>
 <h2>TODOs:</h2>
   {% include 'todo_list/components/todo_items_list.html' %}
