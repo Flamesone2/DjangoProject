@@ -1,7 +1,7 @@
 from django import forms
 from todo_list.models import ToDoItem
 
-class ToDoItemForm(forms.ModelForm):
+class ToDoItemCreateForm(forms.ModelForm):
     class Meta:
         model = ToDoItem
         fields = ("title", "description")
@@ -15,3 +15,11 @@ class ToDoItemForm(forms.ModelForm):
     help_texts = {
         "description": "Some useful.",
     }
+
+class ToDoItemUpdateForm(forms.ModelForm):
+    class Meta(ToDoItemCreateForm.Meta):
+        fields = (
+            "title",
+            "description",
+            "done",
+        )
